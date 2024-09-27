@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main_menu.apps.MainMenuConfig',
     # Модули:
     'mptt',
+    'django_mptt_admin',
 ]
 
 MIDDLEWARE = [

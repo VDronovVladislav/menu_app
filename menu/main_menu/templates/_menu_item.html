@@ -1,0 +1,25 @@
+{% if menu_item.get_children %}
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="dropdown{{ menu_item.id }}"
+       data-bs-toggle="dropdown" aria-expanded="false">{{ menu_item }}</a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdown{{ menu_item.id }}">
+        {% for child in menu_item.get_children %}
+            <li><a class="dropdown-item" href="#">{{ child }}</a></li>
+            {% if child.get_children %}
+                {% for child in child.get_children %}
+                    {% include '_menu_item.html' with menu_item=child %}
+                {% endfor %}
+            {% endif %}    
+        {% endfor %}
+    </ul>
+</li>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link" href="{{ menu_item.url }}">{{ menu_item.name }}</a>
+</li>
+{% endif %}
+
+{% if child.get_children %}
+{% include "_menu_item.html" with menu_item=child %}
+{% endif %}
