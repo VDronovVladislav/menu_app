@@ -1,4 +1,5 @@
 {% load common_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +19,15 @@
 </head>
 <body>
 <header>
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Древовидное меню</a>
-                  {% draw_menu 'main_menu' %}
-                  {% draw_menu 'extra_menu' %}
-            </div>
-      </nav>
+    <div class="container-fluid bg-light text-center py-2">
+        <h1 class="display-6">Древовидное меню</h1>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+        <div class="container-fluid">
+            {% draw_menu 'main_menu' %}
+            {% draw_menu 'extra_menu' %}
+        </div>
+    </nav>
 </header>
 {% block body %}
 
